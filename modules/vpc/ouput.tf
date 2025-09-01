@@ -4,15 +4,12 @@ output "vpc_id" {
 
 
 output "public_subnet_ids" {
-  value = [
-    aws_subnet.jupiter_public_subnet_01_az1a.id,
-    aws_subnet.jupiter_public_subnet_02_az1b.id
-  ]
+  value = {
+   1 = aws_subnet.jupiter_public_subnet_01_az1a.id,
+   2 = aws_subnet.jupiter_public_subnet_02_az1b.id
+  }
 }
 
 output "availability_zones" {
-  value = [
-    var.availability_zone[0],
-    var.availability_zone[1]
-  ]
+  value = var.availability_zone
 }
