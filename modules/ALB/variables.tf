@@ -3,10 +3,11 @@ variable "vpc_id" {
 }
 
 variable "public_subnet_ids" {
-  type = list(string)
+  type = map(string)
 }
 
-variable "aws_instance_ids" {
-  type = list(string)
+variable "jupiter_instance" {
+  type = map(string)
 }
+
 

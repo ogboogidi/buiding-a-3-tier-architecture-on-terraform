@@ -21,13 +21,13 @@ module "vpc" {
 module "alb" {
   source            = "./modules/ALB"
   vpc_id            = module.vpc.vpc_id
-  public_subnet_ids = module.vpc.public_subnet_ids[*]
-  aws_instance_ids  = module.ec2.aws_instance_ids
+  public_subnet_ids = module.vpc.public_subnet_ids
+  jupiter_instance  = module.ec2.jupiter_instance
 }
 
 module "ec2" {
-  source             = "./modules/ec2"
-  vpc_id             = module.vpc.vpc_id
-  public_subnet_ids  = module.vpc.public_subnet_ids[*]
-  user_data          = file("${path.root}/user_data.sh")
+  source            = "./modules/ec2"
+  vpc_id            = module.vpc.vpc_id
+  public_subnet_ids = module.vpc.public_subnet_ids
+  alb_sg            = module.alb.alb_sg 
 }

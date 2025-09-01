@@ -30,7 +30,6 @@ resource "aws_subnet" "jupiter_public_subnet_01_az1a" {
   cidr_block = var.public_subnet_cidr_block[0]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[0]
-  map_public_ip_on_launch = true
 
     tags = merge(
     var.tags,
@@ -48,7 +47,6 @@ resource "aws_subnet" "jupiter_public_subnet_02_az1b" {
   cidr_block = var.public_subnet_cidr_block[1]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[1]
-  map_public_ip_on_launch = true
 
     tags = merge(
     var.tags,
@@ -94,7 +92,6 @@ resource "aws_subnet" "jupiter_private_subnet_03_az1a" {
   cidr_block = var.private_subnet_cidr_block[0]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[0]
-  map_public_ip_on_launch = false
 
     tags = merge(
     var.tags,
@@ -112,7 +109,6 @@ resource "aws_subnet" "db_private_subnet_04_az1a" {
   cidr_block = var.db_private_subnet_cidr_block[0]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[0]
-  map_public_ip_on_launch = false
 
     tags = merge(
     var.tags,
@@ -192,7 +188,6 @@ resource "aws_subnet" "jupiter_private_subnet_05_az1b" {
   cidr_block = var.private_subnet_cidr_block[1]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[1]
-  map_public_ip_on_launch = false
 
     tags = merge(
     var.tags,
@@ -209,7 +204,6 @@ resource "aws_subnet" "db_private_subnet_06_az1b" {
   cidr_block = var.db_private_subnet_cidr_block[1]
   vpc_id = aws_vpc.jupiter_main_vpc.id
   availability_zone = var.availability_zone[1]
-  map_public_ip_on_launch = false
 
     tags = merge(
     var.tags,
